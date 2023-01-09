@@ -273,12 +273,20 @@ function compiler(input) {
     let ast = parser(tokens);
     let newAst = transformer(ast);
     let output = codeGenerator(newAst);
-
     console.log(`\x1b[33m ${output}\x1b[0m`);
 
     console.log(tokens, ast, newAst);
 
     return output;
 }
+
+module.exports = {
+    tokenizer,
+    parser,
+    traverser,
+    transformer,
+    codeGenerator,
+    compiler,
+};
 
 compiler("(add 2 (substract 4 2))");
